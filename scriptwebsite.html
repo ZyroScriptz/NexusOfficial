@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusOfficial</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#08111f;
+color:#fff;
+padding:25px;
+}
+
+.logo{
+text-align:center;
+font-size:48px;
+font-weight:900;
+line-height:60px;
+margin-top:20px;
+}
+
+.logo span{
+color:#3d78ff;
+}
+
+.mainbtn{
+display:block;
+width:100%;
+max-width:340px;
+margin:25px auto;
+padding:17px;
+border-radius:40px;
+border:3px solid #3d78ff;
+text-align:center;
+color:#3d78ff;
+font-weight:bold;
+text-decoration:none;
+font-size:22px;
+}
+
+.subtitle{
+font-size:19px;
+color:#c7c7c7;
+line-height:32px;
+margin-bottom:25px;
+}
+
+.card{
+background:#11213f;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.card img{
+width:100%;
+display:block;
+}
+
+.content{
+padding:22px;
+}
+
+.tag{
+display:inline-block;
+padding:10px 22px;
+background:#1f5e97;
+border-radius:30px;
+font-weight:bold;
+margin-bottom:18px;
+}
+
+.title{
+font-size:42px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.desc{
+font-size:21px;
+color:#c5c5c5;
+line-height:34px;
+}
+
+.scriptbtn{
+display:block;
+margin-top:30px;
+padding:20px;
+border-radius:25px;
+background:linear-gradient(90deg,#3567ff,#27c8df);
+text-align:center;
+text-decoration:none;
+font-size:24px;
+font-weight:bold;
+color:white;
+cursor:pointer;
+}
+
+.scriptbtn:hover{
+opacity:.9;
+}
+
+.footer{
+margin-top:30px;
+text-align:center;
+color:#888;
+font-size:14px;
+}
+
+.overlay{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
+}
+
+.popup{
+position:relative;
+background:#11213f;
+width:100%;
+max-width:420px;
+padding:25px;
+border-radius:20px;
+text-align:center;
+animation:popup .2s ease;
+}
+
+@keyframes popup{
+from{
+transform:scale(.9);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.popup h2{
+margin-bottom:15px;
+font-size:28px;
+}
+
+.popup p{
+color:#c7c7c7;
+margin-bottom:15px;
+font-size:16px;
+}
+
+.xbtn{
+position:absolute;
+top:10px;
+right:15px;
+background:none;
+border:none;
+color:white;
+font-size:36px;
+cursor:pointer;
+}
+
+.popup textarea{
+width:100%;
+height:140px;
+background:#08111f;
+color:white;
+border:2px solid #3d78ff;
+border-radius:12px;
+padding:12px;
+font-size:16px;
+resize:none;
+outline:none;
+margin-bottom:18px;
+}
+
+.copybtn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:15px;
+background:linear-gradient(90deg,#3567ff,#27c8df);
+color:white;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="logo">
+<span>NexuzOfficial</span>
+</div>
+
+<a href="#" class="mainbtn">
+ROBLOX SCRIPTS
+</a>
+
+<div class="subtitle">
+Select a game below to view and copy scripts instantly.
+</div>
+
+<div class="card">
+
+<img src="https://cdn.discordapp.com/attachments/1396826312718680156/1521161630384390184/noFilter.webp?ex=6a43d3aa&is=6a42822a&hm=69a5fdce27f0c35f0d8dfa09107ebdde911272230e461fe148b9e90307f57deb&" alt="Game">
+
+<div class="content">
+
+<div class="tag">
+SIMULATOR
+</div>
+
+<div class="title">
+🌱 Grow A Garden 2
+</div>
+
+<div class="desc">
+Auto farm, auto collect, teleport, fast harvest, and many other useful features.
+</div>
+
+<a href="#" class="scriptbtn" onclick="openPopup();return false;">
+Get Script
+</a>
+
+</div>
+
+</div>
+
+<div class="footer">
+Made with HTML, CSS & JavaScript
+</div>
+
+<div class="overlay" id="overlay">
+
+<div class="popup">
+
+<button class="xbtn" onclick="closePopup()">&times;</button>
+
+<h2>🌱 Grow A Garden 2</h2>
+
+<p>SCRIPT - COPY & PASTE</p>
+
+<textarea id="scriptText" readonly>loadstring(game:HttpGet("https://raw.githubusercontent.com/ZyroScriptz/Gag2/refs/heads/main/Gag2Script"))()</textarea>
+
+<button class="copybtn" onclick="copyScript()">
+📋 Copy Script
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function openPopup(){
+    document.getElementById("overlay").style.display = "flex";
+}
+
+function closePopup(){
+    document.getElementById("overlay").style.display = "none";
+}
+
+function copyScript(){
+
+    const textarea = document.getElementById("scriptText");
+
+    if (navigator.clipboard && window.isSecureContext){
+
+        navigator.clipboard.writeText(textarea.value)
+        .then(function(){
+            alert("Copied!");
+        })
+        .catch(function(){
+            fallbackCopy();
+        });
+
+    }else{
+
+        fallbackCopy();
+
+    }
+
+}
+
+function fallbackCopy(){
+
+    const textarea = document.getElementById("scriptText");
+
+    textarea.removeAttribute("readonly");
+
+    textarea.focus();
+
+    textarea.select();
+
+    textarea.setSelectionRange(0,99999);
+
+    try{
+
+        document.execCommand("copy");
+
+        alert("Copied!");
+
+    }catch(err){
+
+        alert("Copy failed!");
+
+    }
+
+    textarea.setAttribute("readonly","");
+
+}
+
+window.onclick = function(event){
+
+    if(event.target == document.getElementById("overlay")){
+
+        closePopup();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
